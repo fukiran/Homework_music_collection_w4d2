@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.album import Album
+from models.artist import Artist
 import repositories.artist_repository as artist_repository
 
 
@@ -32,6 +33,17 @@ def select_all():
 
     for row in results:
         album = Album(row['title'], row['genre'], row['artist_id'], row['id'])
+        albums.append(album)
+    return albums
+
+def select_by_artist(artist):
+    albums =[]
+    sql = "SELECT * FROM albums WHERE artist_id = %s"
+    values = [artist.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        album = Album(row['title'], row['genre'], artist, row['id'])
         albums.append(album)
     return albums
 

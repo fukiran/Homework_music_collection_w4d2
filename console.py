@@ -7,10 +7,10 @@ import repositories.artist_repository as artist_repository
 album_repository.delete_all()
 artist_repository.delete_all()
 
-artist_1 = Artist('Lee Perry')
+artist_1 = Artist('Lee Perry', 83)
 artist_repository.save(artist_1)
 
-artist_2 = Artist('Chinese Man')
+artist_2 = Artist('Chinese Man', 33)
 artist_repository.save(artist_2)
 
 artist_repository.select(artist_1.id)
@@ -27,6 +27,11 @@ album_repository.save(album_4)
 album_repository.select(album_1.id)
 
 
-res = album_repository.select_all()
+res = album_repository.select_by_artist(artist_2)
 for album in res:
     print(album.__dict__)
+    
+# all_artists = artist_repository.select_all()
+# for artist in all_artists:
+#     print (artist.__dict__)
+

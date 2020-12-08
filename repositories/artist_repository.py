@@ -31,6 +31,6 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        artist = Artist(row['name'], row['id'])
+        artist = Artist(row['name'],row['id'])
         artists.append(artist)
     return artist
