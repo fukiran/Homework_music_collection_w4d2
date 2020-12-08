@@ -31,7 +31,5 @@ res = album_repository.select_by_artist(artist_2)
 for album in res:
     print(album.__dict__)
     
-# all_artists = artist_repository.select_all()
-# for artist in all_artists:
-#     print (artist.__dict__)
+
 
